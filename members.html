@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Handsfree for Web</title>
+    <link href="docs-assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="docs-assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="docs-assets/css/custom.css" rel="stylesheet">
+    <link href="docs-styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="body.css" rel="stylesheet">
+  </head>
+
+  <style>
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: linear-gradient(90deg, #1f1f1f, #3d3d3d); /* Gradient background */
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  color: #00bcd4; /* Teal color for the icon */
+  font-size: 1.5rem;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ddd; /* Softer white */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect for Links */
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #00bcd4; /* Teal underline */
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+.nav-links i {
+  font-size: 1.3rem;
+}
+
+/* Contact Button */
+.contact-btn {
+  background-color: #00bcd4; /* Teal */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.main-container {
+  position: relative;
+  background-image: url("bodybg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;  /* Ensures the image covers the entire container */
+  background-position: center;  /* Optional: Centers the image */
+  height: 100vh;  /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Overlay to make text readable */
+.main-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent dark overlay */
+  z-index: 1;
+}
+
+.main-container .content {
+  position: relative;
+  color: white;
+  z-index: 2;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Background for content area */
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+.main-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.main-container p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.main-container .features-list {
+  list-style-type: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.main-container .features-list li {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* Contact Button */
+.contact-btn {
+  background-color: #00bcd4; /* Teal */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.contact-btn:hover {
+  background-color: #0288d1; /* Darker teal */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 8px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container .content {
+    padding: 20px;
+  }
+
+  .main-container h1 {
+    font-size: 2rem;
+  }
+
+  .main-container p {
+    font-size: 1.2rem;
+  }
+
+  .main-container .features-list li {
+    font-size: 1.2rem;
+  }
+}
+  </style>
+
+  <body class="nav-md">
+   
+    <!-- Start -->
+    <header class="navbar">
+      <div class="logo">
+        <i class="fas fa-robot"></i> Voice Navigation through Browser
+      </div>
+      <nav class="nav-links">
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="members.html"><i class="fas fa-users"></i> Members</a>
+        <a href="use.html"><i class="fas fa-book"></i> How to Use</a>
+      </nav>
+      <button class="contact-btn"><i class="fas fa-envelope"></i> Contact</button>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+      <div class="content">
+        <h1>Members</h1>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+           -color: #f0f0f0; /* Added background color for better contrast */
+          }
+          .team-container {
+            display: flex;
+            justify-content space-around;
+            padding: 3px; /* Increased padding for better spacing */
+            flex-wrap: wrap; /* Allows flex items to wrap to the next */
+         }
+          .team-member {
+            background-color: #ffffff; /* Changed background color to white for contrast */
+            border-radius: 15px; /* Slightly border radius */
+            text-align: center;
+            padding: 25px; /* Increased padding inside member card */
+            width: 240px; /* Slightly wider width */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+          }
+          .team:hover {
+            transform: translateY(-5px); /* Hover effect to lift the card */
+          }
+          .member-image img {
+            border-radius: 39%;
+            width: 150px; /* Fixed size for images */
+            height: 150px; /* Fixed size for images */
+            object-fit: cover; /* Ensure images cover the area */
+          }
+          .member-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333; /* Changed text color for better readability */
+            margin-top: 10px;
+          }
+          .member-title {
+            color: hsl(120, 93%, 40%); /* Changed color for title to be less prominent */
+            margin-top: 5px;
+            font-size: 0.9em;
+          }
+          .member {
+            text-align: center;
+            margin-top: 9px;
+            font-size: 0.8em;
+            color: #271e1e; /* Updated description color for consistency */
+          }
+        
+          /* Member Card Colors */
+          #member1 { background-color: #E85F3C; }
+          #member2 { background-color: #EC4564; }
+          #member3 { background-color: #A34498; }
+         </style>
+        </head>
+        <body>
+        
+        <div class="team-container">
+          <div class="team-member" id="member1">
+            <div class="member-image"><img src="member1.jpg" alt="Member 1"></div>
+         <div class="member-name">Bidit Mazumdar</div>
+            <div class="member-title">Web Developer</div>
+            <div class="member-description">CSM23055.</div>
+          </div>
+          <div class="team-member" id="member2">
+            <div class="member-image"><img src="member2.jpg" alt="Member 2"></div>
+            <div class="member-name">Aditya Kumar</div>
+            <div class="member-title">Back End</div>
+            <div class="member-description">CSM23049</div>
+          </div>
+          <div class="team-member" id="member3">
+            <div class="member-image"><img src="member3.jpg" alt="Member 3"></div>
+            <div class="member"><h2>Dr. Debojit Boro</div>
+            <div class="member-title">Project Guide</div>
+            <div class="member-description">Provides valuable guidance and support.</div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+
+    <script src="https://cdn.ravenjs.com/3.26.4/raven.min.js" crossorigin="anonymous"></script>
+    <script src="docs-assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="docs-assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="docs-assets/js/custom.js"></script>
+    <script src="content.js"></script>
+    <script src="docs.js"></script>
+  </body>
+</html>
