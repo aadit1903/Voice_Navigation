@@ -30,16 +30,6 @@ Technologies Used
 *   **JSON** for configuration management
     
 
-How to Run
-----------
-
-1.  bashCopyEditgit clone https://github.com/@aadit1903/Voice_Navigation.gitcd voice-navigation-system
-    
-2.  Open index.html in a browser.
-    
-3.  Enable microphone access when prompted.
-    
-4.  Use voice commands to navigate.
     
 
 Future Enhancements
